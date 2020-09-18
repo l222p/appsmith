@@ -39,7 +39,7 @@ export const evaluateDataTree = (withFunctions?: boolean) =>
   );
 
 export const evaluateDataTreeWithFunctions = evaluateDataTree(true);
-export const evaluateDataTreeWithoutFunctions = evaluateDataTree(true);
+export const evaluateDataTreeWithoutFunctions = evaluateDataTree(false);
 
 // For autocomplete. Use actions cached responses if
 // there isn't a response already
