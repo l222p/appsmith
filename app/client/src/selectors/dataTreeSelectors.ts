@@ -7,6 +7,7 @@ import { getWidgets, getWidgetsMeta } from "sagas/selectors";
 import * as log from "loglevel";
 import "url-search-params-polyfill";
 import { getPageList } from "./appViewSelectors";
+import { AppState } from "../reducers";
 
 export const getUnevaluatedDataTree = (withFunctions?: boolean) =>
   createSelector(
@@ -38,8 +39,10 @@ export const evaluateDataTree = (withFunctions?: boolean) =>
     },
   );
 
-export const evaluateDataTreeWithFunctions = evaluateDataTree(true);
-export const evaluateDataTreeWithoutFunctions = evaluateDataTree(false);
+export const evaluateDataTreeWithFunctions = (state: AppState) =>
+  state.evaluations.tree;
+export const evaluateDataTreeWithoutFunctions = (state: AppState) =>
+  state.evaluations.tree;
 
 // For autocomplete. Use actions cached responses if
 // there isn't a response already
